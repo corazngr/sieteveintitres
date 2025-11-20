@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/publico/contacto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="/sieteveintitres/images/logo723.ico" type="image/png">
+
+    <title>Contáctanos | Siete Veintitrés Indoor Cycling</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <div><a href="/sieteveintitres/html/index.html"><img src="/sieteveintitres/images/icono723.png"
+                        alt="Logo 723"></a></div>
+            <div class="logo"><a href="/sieteveintitres/html/index.html">SIE7E 23</a></div>
+            <div class="social-bar">
+                <a href="https://www.facebook.com/profile.php?id=100095045494705" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sieteveintitresindoor" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5217471491562" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="nav">
+            <a href="/sieteveintitres/html/publico/nosotros.html">Nosotros</a>
+            <a href="/sieteveintitres/html/publico/membresias.html">Membresías</a>
+            <a href="/sieteveintitres/html/publico/horario.html">Horarios</a>
+            <a href="/sieteveintitres/html/publico/coaches.html">Coaches</a>
+            <a href="/sieteveintitres/html/publico/contacto.html" class="contacto-btn"><i
+                    class="fa-solid fa-envelope"></i> Contáctanos</a>
+            <div class="profile-menu-container">
+                <button id="profile-menu-toggle" class="perfil-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <div id="profile-dropdown" class="profile-dropdown">
+                    <a href="/sieteveintitres/html/publico/iniciosesion.html">Iniciar Sesión</a>
+                    <a href="/sieteveintitres/html/publico/miusuario.html">Mi Perfil</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="contacto-container">
+            <h2>CONTÁCTANOS</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Nombre Completo" name="nombre" required>
+                <input type="email" placeholder="Correo electrónico" name="correo" required>
+                <input type="tel" placeholder="Teléfono" name="telefono" required>
+                <select name="como_se_entero" required>
+                    <option value="" disabled selected>¿Cómo te enteraste de nosotros?</option>
+                    <option value="Redes Sociales">Redes Sociales</option>
+                    <option value="Amigos">Amigos</option>
+                    <option value="Publicidad">Publicidad</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <textarea placeholder="Mensaje" name="mensaje"></textarea>
+                <button type="submit" class="btn-enviar">ENVIAR MENSAJE</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Sie7e Veintitrés</h2>
+                <p>Indoor Cycling</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="/sieteveintitres/html/index.html">Inicio</a>
+                <a href="/sieteveintitres/html/publico/nosotros.html">Nosotros</a>
+                <a href="/sieteveintitres/html/publico/membresias.html">Membresías</a>
+                <a href="/sieteveintitres/html/publico/horario.html">Horarios</a>
+                <a href="/sieteveintitres/html/publico/coaches.html">Coaches</a>
+                <a href="/sieteveintitres/html/publico/contacto.html">Contacto</a>
+            </div>
+
+            <div class="footer-contact">
+                <p>📍 Chilpancingo, Guerrero</p>
+                <p>📞 <a href="tel:+527471491562">+52 747 149 1562</a></p>
+                <p>💬 <a href="https://wa.me/5217471491562" target="_blank">WhatsApp</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Siete Veintitrés Indoor Cycling. Todos los derechos reservados.</p>
+            <p>Página Web realizada por Corazón García: <a href="https://wa.me/5217471080710" target="_blank">+52 747
+                    1080710</a></p>
+        </div>
+    </footer>
+
+    <script src="/sieteveintitres/js/menuhamburguesa.js"></script>
+    <script src="/sieteveintitres/js/menuperfil.js"></script>
+    <script src="/sieteveintitres/js/auth/auth.js"></script>
+    <script src="/sieteveintitres/js/publico/contacto.js"></script>
+</body>
+
+</html>

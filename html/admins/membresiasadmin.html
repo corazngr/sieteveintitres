@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/membresiasadmin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <title>Membresías | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item active">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Gestión de Membresías</h1>
+                    <p class="subtitle">Define los planes y visualiza las membresías activas de los riders.</p>
+                </div>
+                <button class="btn-primary" id="openCreateModalBtn">
+                    <i class="fa-solid fa-plus"></i> Crear Tipo de Membresía
+                </button>
+            </header>
+
+            <section class="membership-types" id="membershipTypesContainer">
+            </section>
+
+            <section class="active-memberships">
+                <div class="section-header">
+                    <h2>Membresías Activas</h2>
+
+                    <div class="header-controls">
+                        <div class="search-bar">
+                            <i class="fa-solid fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Buscar por nombre de rider...">
+                        </div>
+
+                        <a href="/sieteveintitres/php/admins/reporte_membresias_activas.php" target="_blank"
+                            class="btn-generar-reporte">
+                            <i class="fa-solid fa-file-pdf"></i> Generar Reporte
+                        </a>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="memberships-table">
+                        <thead>
+                            <tr>
+                                <th>Rider</th>
+                                <th>Tipo de Membresía</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Vencimiento</th>
+                                <th>Clases Restantes</th>
+                                <th>Días Restantes</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activeMembershipsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="createMembershipModal">
+        <div class="modal-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+
+            <div class="modal-header">
+                <h2>Crear Nueva Membresía</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+
+            <form class="modal-form">
+                <input type="hidden" id="membershipId" name="id_tipo_membresia">
+                <div class="form-group full-width">
+                    <label for="membershipName">Nombre de la Membresía</label>
+                    <input type="text" id="membershipName"
+                        placeholder="Ej: Mensualidad Matutina, Mensualidad Vespertina, etc" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="membershipPrice">Precio (sin símbolos)</label>
+                    <input type="number" id="membershipPrice" placeholder="Ej: 1,450" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="membershipPeriod">Periodo</label>
+                    <input type="text" id="membershipPeriod" placeholder="Ej: / mes, / clase, / 60 días" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="membershipDescription">Descripción Corta</label>
+                    <textarea id="membershipDescription" rows="2"
+                        placeholder="Esta es la descripción que aparece en la tarjeta."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="membershipFeatures">Características (una por línea)</label>
+                    <textarea id="membershipFeatures" rows="4"
+                        placeholder="Ej: + Acceso a clases matutinas&#10;- Acceso a clases vespertinas"></textarea>
+                    <small>Usa '+' para incluir y '-' para deshabilitar una característica.</small>
+                </div>
+
+                <div class="form-group-checkbox full-width">
+                    <input type="checkbox" id="isFeatured">
+                    <label for="isFeatured">Marcar como "Más Popular"</label>
+                </div>
+            </form>
+
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-primary">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal-overlay" id="deactivateMembershipModal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> Confirmar Desactivación</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas desactivar la membresía <strong><span
+                            id="deactivateMembershipName"></span></strong>?</p>
+
+                <p class="modal-consequence">Ya no será visible para los clientes ni se podrá asignar a nuevos
+                    riders.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-danger">Sí, Desactivar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="activateMembershipModal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-circle-check"></i> Confirmar Activación</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>¿Deseas volver a activar la membresía <strong><span id="activateMembershipName"></span></strong>?
+                </p>
+                <p class="modal-consequence">Volverá a estar disponible para la venta y asignación.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-success">Sí, Activar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="deleteMembershipModal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-skull-crossbones"></i> Confirmar Eliminación</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas **eliminar permanentemente** la membresía <strong><span
+                            id="deleteMembershipName"></span></strong>?</p>
+                <p class="modal-consequence"><strong>¡Esta acción es irreversible!</strong> La membresía desaparecerá
+                    para siempre.</p>
+                <p class="modal-consequence">Solo funcionará si ningún rider tiene o ha tenido esta membresía.</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-danger" id="confirmDeleteBtn">Sí, Eliminar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/sieteveintitres/js/admins/membresiasadmin.js"></script>
+<script src="/sieteveintitres/js/cerrarsesion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>

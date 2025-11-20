@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/vistapublico.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Vista del Público | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item active">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+
+            <header class="main-header">
+                <h1>Configuración de la Vista al Público</h1>
+                <p class="subtitle">Administra el contenido dinámico de tu página pública.</p>
+                <br>
+            </header>
+
+            <section class="content-section">
+                <h3><i class="fa-solid fa-plus"></i> Subir Nuevo Evento</h3>
+
+                <form id="upload-event-form" action="/sieteveintitres/php/admins/actualizar_evento.php" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label for="event-title">Título del Evento:</label>
+                            <input type="text" id="event-title" name="event-title"
+                                placeholder="Ej: Ice Cream Party Ride" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-description">Descripción Corta:</label>
+                            <input type="text" id="event-description" name="event-description"
+                                placeholder="Ej: Happy Ride + Ice Cream." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-image">Imagen del Evento (JPG, PNG):</label>
+                            <input type="file" id="event-image" name="event-image" accept="image/jpeg, image/png"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-submit">
+                                <i class="fa-solid fa-upload"></i> Subir Evento
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="content-section">
+                <h3><i class="fa-solid fa-images"></i> Eventos Actuales</h3>
+                <p style="margin-top: -15px; margin-bottom: 20px; font-size: 0.9rem; color: #777;">
+                    Aquí puedes ver y eliminar los eventos que se muestran en la página "Nosotros".
+                </p>
+
+                <div id="events-gallery" class="events-gallery-container">
+
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h3><i class="fa-solid fa-user"></i> Subir Nuevo Perfil de Coach</h3>
+
+                <form id="upload-coach-form" action="/sieteveintitres/php/admins/subir_coach.php" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="form-container">
+
+                        <div class="form-group">
+                            <label for="coach-id">Coach:</label>
+                            <select id="coach-id" name="coach-id" class="form-input" required>
+                                <option value="">Cargando coaches disponibles...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-especialidad">Especialidad:</label>
+                            <input type="text" id="coach-especialidad" name="coach-especialidad"
+                                placeholder="Ej: Rhythm & Flow" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-descripcion">Descripción:</label>
+                            <input type="text" id="coach-descripcion" name="coach-descripcion"
+                                placeholder="Una breve descripción del coach..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-img-perfil">Imagen de Perfil (Frontal):</label>
+                            <input type="file" id="coach-img-perfil" name="coach-img-perfil"
+                                accept="image/jpeg, image/png" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-img-gustos">Imagen de Gustos (Trasera):</label>
+                            <input type="file" id="coach-img-gustos" name="coach-img-gustos"
+                                accept="image/jpeg, image/png" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-facebook">Link de Facebook (Opcional):</label>
+                            <input type="text" id="coach-facebook" name="coach-facebook"
+                                placeholder="URL completa de Facebook...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coach-instagram">Link de Instagram (Opcional):</label>
+                            <input type="text" id="coach-instagram" name="coach-instagram"
+                                placeholder="URL completa de Instagram...">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn-submit">
+                                <i class="fa-solid fa-upload"></i> Subir Perfil
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="content-section">
+                <h3><i class="fa-solid fa-users-line"></i> Perfiles de Coaches Actuales</h3>
+                <p style="margin-top: -15px; margin-bottom: 20px; font-size: 0.9rem; color: #777;">
+                    Aquí puedes ver y eliminar los perfiles públicos de los coaches.
+                </p>
+
+                <div id="coaches-gallery" class="events-gallery-container">
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/sieteveintitres/js/admins/vistapublico.js"></script>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+@import url('estilo.css');
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    width: 260px;
+    background-color: #1a1a1a;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.main-header,
+.membership-types,
+.membership-card,
+.status-badge,
+.table-container,
+.section-header {
+    position: relative;
+    z-index: 2;
+}
+
+/* === Estilos para la sección de Tipos de Membresía === */
+.membership-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.membership-card {
+    background-color: #1a1a1a;
+    border: 1px solid #282828;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #55ffe2;
+    margin-bottom: 0.5rem;
+}
+
+.card-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.action-btn-card {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: none;
+    color: #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn-card.edit:hover {
+    background-color: #2980B9;
+    border-color: #2980B9;
+    color: #fff;
+}
+
+.action-btn-card.delete:hover {
+    background-color: #C0392B;
+    border-color: #C0392B;
+    color: #fff;
+}
+
+/* === Estilos para la tabla de Membresías Activas === */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-bar input {
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem 0.8rem 0.8rem 40px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.table-container {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #282828;
+}
+
+.memberships-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.memberships-table th,
+.memberships-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #282828;
+}
+
+.memberships-table th {
+    background-color: #252525;
+    color: #a0a0a0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.memberships-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.status-badge.status-active {
+    background-color: rgba(39, 174, 96, 0.2);
+    color: #27AE60;
+}
+
+.status-badge.status-expires-soon {
+    background-color: rgba(211, 84, 0, 0.2);
+    color: #D35400;
+}
+
+.btn-primary {
+    background-color: #ff0080;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 1rem 0;
+}
+
+.btn-primary:hover {
+    background-color: #d6006c;
+    transform: translateY(-2px);
+}
+
+.membership-card .price-period {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #a0a0a0;
+}
+
+.membership-card .card-description {
+    min-height: 45px;
+    flex-grow: 0;
+}
+
+.card-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex-grow: 1;
+}
+
+.card-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-features-list li i {
+    color: #27AE60;
+}
+
+.card-features-list li.disabled {
+    color: #777;
+    text-decoration: line-through;
+}
+
+.card-features-list li.disabled i {
+    color: #C0392B;
+}
+
+/* Insignia de "Más Popular" */
+.membership-card.featured {
+    position: relative;
+    border-color: #ff0080;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0080;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+/* === ESTILOS ADICIONALES PARA MODALES DE MEMBRESÍAS === */
+
+.modal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 50px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group small {
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.form-group-checkbox label {
+    font-weight: 500;
+    color: #a0a0a0;
+}
+
+/* =============================================== */
+/* ====== ESTILOS PARA EL MODAL DE NUEVA CLASE ==== */
+/* =============================================== */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.visible {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.modal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-danger {
+    background: none;
+    border: 1px solid #66fabc;
+    color: #ccc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #39afab;
+    color: #fff;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Móviles y Tablets)
+   ========================================================================== */
+
+#mobile-menu-btn {
+    display: none;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+
+    .membership-types {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* --- LAYOUT GENERAL --- */
+    html,
+    body {
+        overflow: auto;
+    }
+
+    .dashboard-container {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        height: 100%;
+        z-index: 1001;
+        display: flex;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Botón menú visible */
+    #mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* --- HEADER --- */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .main-header .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* --- SECCIÓN DE TABLA ACTIVAS --- */
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .header-controls {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .btn-generar-reporte {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    /* --- TABLA (Scroll Horizontal) --- */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .memberships-table th,
+    .memberships-table td {
+        white-space: nowrap;
+        padding: 0.8rem 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    /* --- MODALES --- */
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .modal-form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: 0.8rem;
+    }
+
+    .btn-secondary,
+    .btn-primary,
+    .btn-danger {
+        width: 100%;
+        justify-content: center;
+    }
+}

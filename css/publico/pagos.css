@@ -1,0 +1,655 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+/* Redes sociales */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left img {
+    height: 60px;
+    display: block;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 20px #ff0080);
+}
+
+.social-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.social-bar a {
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-bar a:hover {
+    background-color: #55ffe2;
+    color: white;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 50, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 999;
+}
+
+nav .nav-links {
+  display: inline-block;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+nav a {
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff0080;
+}
+
+.contacto-btn {
+    background: #ff0080;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.contacto-btn:hover {
+    background: white;
+    color: #ff0080 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.profile-menu-container {
+  position: relative;
+  margin-left: 1rem;
+  display: inline-block;
+}
+
+.perfil-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.perfil-btn i {
+  font-size: 18px;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.perfil-btn i:hover {
+  background-color: #55ffe2;
+  color: white;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: #1a1a1a;
+  border: 1px solid #ff0080;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  min-width: 180px;
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.profile-dropdown.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-dropdown a {
+  display: block;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.profile-dropdown a:hover {
+  background-color: #ff0080;
+  color: white;
+}
+
+
+/* Botón hamburguesa */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.payment-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 120px 2rem 4rem;
+    text-align: center;
+}
+
+.payment-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.payment-container .subtitle {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.payment-step h2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #55ffe2;
+    padding-bottom: 0.8rem;
+}
+
+.step-number {
+    display: inline-block;
+    background-color: #55ffe2;
+    color: #111;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.payment-step p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.bank-details {
+    display: flex;
+    align-items: center;
+    gap: 2rem;         
+    flex-wrap: wrap;  
+    background: #111;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #ff0080;
+}
+
+.card-image-container,
+.card-text-container {
+    flex: 1; 
+    min-width: 250px; 
+}
+
+.bank-card-image {
+    width: 100%;
+    max-width: 320px; 
+    display: block;
+    margin: 0 auto; 
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-text-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-text-container li {
+    padding: 0.5rem 0;
+    color: #eee;
+}
+
+.card-text-container li strong {
+    color: #fff;
+    min-width: 160px;
+    display: inline-block;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #888;
+    background-color: rgba(85, 255, 226, 0.05);
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+.note-final {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.note i, .note-final i {
+    color: #55ffe2;
+    margin-right: 8px;
+}
+
+.file-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-upload-btn {
+    background-color: #ff0080;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.file-upload-btn:hover {
+    background-color: #d6006c;
+    transform: translateY(-2px);
+}
+
+.file-upload-btn i {
+    margin-right: 10px;
+}
+
+.file-name-display {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #25D366; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.submit-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.submit-btn i {
+    margin-right: 10px;
+}
+
+.whatsapp-instructions {
+    text-align: center;
+    padding: 12px;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(85, 255, 226, 0.1);
+    color: #55ffe2;
+    font-weight: 500;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.whatsapp-instructions.show {
+    max-height: 100px;
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+  background-color: #0a0a0a;
+  color: #cccccc;
+  padding: 60px 5% 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  flex: 1.5;
+  min-width: 250px;
+}
+
+.footer-logo h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00f0c0;
+  margin: 0 0 5px 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.footer-logo p {
+  font-size: 0.9rem;
+  color: #888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h3 {
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 4px 0;
+  display: block;
+}
+
+.footer-links a:hover {
+  color: #00f0c0;
+  transform: translateX(8px);
+}
+
+.footer-contact p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+.footer-contact a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #00f0c0;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #282828;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+.footer-bottom a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #00f0c0;
+}
+
+/* =============================================== */
+/* ============= AJUSTES RESPONSIVOS ============ */
+/* =============================================== */
+
+/* === TABLET Y MENÚ HAMBURGUESA === */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav .nav-links,
+  nav .profile-menu-container {
+    display: none;
+  }
+  
+  nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 20, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav.show .nav-links,
+  nav.show .profile-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .profile-menu-container {
+    margin: 1.5rem 0;
+    width: 80%;
+  }
+  .perfil-btn {
+    width: 100%;
+  }
+  .perfil-btn i {
+    font-size: 24px;
+    padding: 12px;
+  }
+  .profile-dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    display: none; 
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    background: #222;
+  }
+  .profile-dropdown.show {
+    display: block;
+  }
+}
+
+/* === MÓVIL (TAMAÑO MEDIO) === */
+@media (max-width: 768px) {
+  header {
+    padding: 0.8rem 1rem;
+  }
+  .payment-container {
+    padding: 100px 1rem 2rem;
+  }
+
+  .payment-container h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .bank-details li strong {
+    display: block; 
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+  
+  .payment-step h2 {
+    font-size: 1.3rem;
+  }
+  
+  .step-number {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.9rem;
+  }
+}
+
+/* === MÓVIL (TAMAÑO PEQUEÑO) === */
+@media (max-width: 480px) {
+
+  .header-left .logo,
+  .header-left .social-bar {
+    display: none;
+  }
+  
+  .payment-container {
+    padding-top: 80px;
+  }
+  
+  .payment-container h1 {
+    font-size: 1.8rem;
+  }
+  
+  .payment-step h2 {
+    font-size: 1.2rem;
+  }
+  
+  .bank-card-image {
+
+    min-width: 0;
+  }
+  
+  .card-text-container {
+    min-width: 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-links a {
+    text-align: center;
+  }
+  .footer-links a:hover {
+    transform: none; 
+  }
+  
+}

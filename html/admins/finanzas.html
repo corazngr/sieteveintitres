@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/finanzas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <title>Finanzas | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item active">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+
+            <header class="main-header">
+                <h1>Gestión Financiera</h1>
+                <p class="subtitle">Registra ingresos, gastos y consulta el historial de transacciones.</p>
+            </header>
+
+            <section class="financial-summary">
+                <div class="summary-card income">
+                    <p>Ingresos (Hoy)</p>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-card expense">
+                    <p>Gastos (Hoy)</p>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-card net-balance">
+                    <p>Saldo Neto (Hoy)</p>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-card month-balance">
+                    <p>Saldo del Mes</p>
+                    <span>$0.00</span>
+                </div>
+            </section>
+
+            <section class="transactions-log">
+                <div class="section-header">
+                    <h2>Historial de Transacciones</h2>
+                    <div class="action-buttons">
+                        <button class="btn-primary" id="btn-add-expense"><i class="fa-solid fa-arrow-down"></i>
+                            Registrar Gasto</button>
+                        <button class="btn-danger" id="btn-add-income"><i class="fa-solid fa-arrow-up"></i> Registrar
+                            Ingreso</button>
+                    </div>
+                </div>
+
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="monthSelector">Mes:</label>
+                        <select id="monthSelector">
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="3">Marzo</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Mayo</option>
+                            <option value="6">Junio</option>
+                            <option value="7">Julio</option>
+                            <option value="8">Agosto</option>
+                            <option value="9">Septiembre</option>
+                            <option value="10">Octubre</option>
+                            <option value="11">Noviembre</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="yearSelector">Año:</label>
+                        <select id="yearSelector">
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="typeFilter">Tipo:</label>
+                        <select id="typeFilter">
+                            <option value="all">Todas</option>
+                            <option value="income">Ingresos</option>
+                            <option value="expense">Gastos</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>&nbsp;</label>
+                        <button class="btn-primary" id="btn-generate-report" style="width: 100%;">
+                            <i class="fa-solid fa-file-pdf"></i> Generar Reporte
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Descripción</th>
+                                <th>Tipo</th>
+                                <th class="text-right">Monto</th>
+                                <th>Responsable</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="modal-overlay" id="transactionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="transactionModalTitle">Registrar Transacción</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group full-width">
+                    <label for="transDescription">Descripción</label>
+                    <input type="text" id="transDescription" name="transDescription"
+                        placeholder="Ej: Venta de Membresía Matutina" required>
+                </div>
+
+                <div id="incomeTypeGroup" class="form-group" style="display: none;">
+                    <label for="transTypeIncome">Tipo de Ingreso</label>
+                    <select id="transTypeIncome" name="tipo_ingreso" required>
+                        <option value="Membresia">Membresía</option>
+                        <option value="Venta Cafeteria">Venta Cafetería</option>
+                        <option value="Visita">Visita</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div id="expenseTypeGroup" class="form-group" style="display: none;">
+                    <label for="transTypeExpense">Tipo de Gasto</label>
+                    <select id="transTypeExpense" name="tipo_egreso" required>
+                        <option value="Servicios">Servicios (Luz, Agua, etc.)</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                        <option value="Pago a Coach">Pago a Coach</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transAmount">Monto (sin símbolos)</label>
+                    <input type="number" id="transAmount" name="transAmount" placeholder="Ej: 1450" step="0.01"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="transResponsible">Responsable</label>
+                    <input type="text" id="transResponsible" name="transResponsible" value="Admin" required>
+                </div>
+            </form>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-primary">Guardar Transacción</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-content modal-sm">
+            <div class="modal-header">
+                <h2>Detalle de Transacción</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="receipt-details">
+                    <li><strong>Fecha:</strong> <span id="receiptDate"></span></li>
+                    <li><strong>Descripción:</strong> <span id="receiptDescription"></span></li>
+                    <li><strong>Tipo:</strong> <span id="receiptType"></span></li>
+                    <li><strong>Monto:</strong> <span id="receiptAmount"></span></li>
+                    <li><strong>Responsable:</strong> <span id="receiptResponsible"></span></li>
+                </ul>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/sieteveintitres/js/admins/finanzas.js"></script>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

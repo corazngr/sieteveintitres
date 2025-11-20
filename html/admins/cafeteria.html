@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/cafeteria.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <title>Cafetería | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item active">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Punto de Venta: Cafetería</h1>
+                    <p class="subtitle">Registra las ventas del área de Cafetería de forma rápida y sencilla.</p>
+                </div>
+            </header>
+
+            <div class="pos-layout">
+                <div class="pos-top-row">
+                    <div class="pos-card">
+                        <h3><i class="fa-solid fa-bolt"></i> Venta Rápida</h3>
+                        <div class="button-grid">
+                            <button class="quick-product-btn" data-product="Agua Embotellada" data-price="25">
+                                <i class="fa-solid fa-droplet"></i> Agua
+                            </button>
+                            <button class="quick-product-btn" data-product="Electrolit" data-price="45">
+                                <i class="fa-solid fa-bottle-water"></i> Electrolit </button>
+                            <button class="quick-product-btn" data-product="Jugo Verde" data-price="50">
+                                <i class="fa-solid fa-leaf"></i> Jugo Verde </button>
+                            <button class="quick-product-btn" data-product="Café" data-price="35">
+                                <i class="fa-solid fa-mug-saucer"></i> Café
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pos-card">
+                        <h3><i class="fa-solid fa-file-invoice-dollar"></i> Detalle de Venta</h3>
+                        <form id="sale-form">
+                            <div class="form-group">
+                                <label for="productName">Producto</label>
+                                <input type="text" id="productName" placeholder="Nombre del producto" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="quantity">Cantidad</label>
+                                    <input type="number" id="quantity" value="1" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="unitPrice">Precio Unitario</label>
+                                    <input type="number" id="unitPrice" placeholder="0.00" step="0.50" required>
+                                </div>
+                            </div>
+                            <div class="total-display">
+                                <span>TOTAL</span>
+                                <span id="saleTotal">$0.00</span>
+                            </div>
+                            <button type="submit" class="btn-danger btn-block">
+                                <i class="fa-solid fa-cash-register"></i> Registrar Venta
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="pos-card">
+                    <h3><i class="fa-solid fa-cart-shopping"></i> Registrar Gasto de Cafetería</h3>
+                    <form id="expense-form">
+                        <div class="form-group full-width">
+                            <label for="expenseDescription">Descripción</label>
+                            <input type="text" id="expenseDescription" name="descripcion"
+                                placeholder="Ej: Resurtido de 5 aguas y 10 electrolit" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="expenseAmount">Monto Total del Gasto</label>
+                            <input type="number" id="expenseAmount" name="monto" placeholder="Ej: 575.00" step="0.01"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-block" id="btn-save-expense"
+                            style="margin-top: 1rem;">
+                            <i class="fa-solid fa-save"></i> Guardar Gasto
+                        </button>
+                    </form>
+                </div>
+
+                <div class="pos-card">
+                    <div class="card-header-action">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> Ventas Recientes</h3>
+                        <div class="header-filters">
+                            <div class="filter-group">
+                                <button class="filter-btn active" data-filter="day">Hoy</button>
+                                <button class="filter-btn" data-filter="week">Semana</button>
+                                <button class="filter-btn" data-filter="month">Mes</button>
+                            </div>
+                            <button class="btn-primary" id="exportPdfBtn">
+                                <i class="fa-solid fa-file-pdf"></i> Exportar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="sales-table">
+                            <thead>
+                                <tr>
+                                    <th>Hora</th>
+                                    <th>Producto</th>
+                                    <th>Total</th>
+                                    <th>Vendedor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09:15 AM</td>
+                                    <td>2 x Agua Embotellada</td>
+                                    <td class="text-right">$50.00</td>
+                                    <td>Admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/sieteveintitres/js/admins/cafeteria.js"></script>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

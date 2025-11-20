@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/coaches/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/sieteveintitres/images/icono_coach.png">
+    <title>Inicio Coach | Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <button class="menu-toggle-btn" id="menu-toggle">
+                ☰
+            </button>
+
+            <nav class="sidebar-nav" id="sidebar-nav">
+
+                <a href="/sieteveintitres/html/coaches/iniciocoach.html" class="nav-item active">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/coaches/clasescoaches.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Mis Clases
+                </a>
+                <a href="/sieteveintitres/html/coaches/perfilcoaches.html" class="nav-item">
+                    <i class="fa-solid fa-user"></i> Mi Perfil
+                </a>
+                <div class="logout-section">
+                    <button class="logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="welcome-header">Cargando...</h1>
+            </header>
+
+            <section class="action-panels-container">
+                <div class="action-panel my-schedule">
+                    <h3>Mi Horario de Clases</h3>
+                    <p>Visualiza tus clases programadas para esta semana.</p>
+                    <a href="/sieteveintitres/html/coaches/clasescoaches.html" class="btn-action">Ver Horario</a>
+                </div>
+            </section>
+
+            <section class="class-list-container">
+                <h2>Próximas Clases</h2>
+                <div id="class-card-list" class="class-card-list">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/sieteveintitres/js/coach/iniciocoach.js"></script>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="/sieteveintitres/js/coach/menuhamburguesa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

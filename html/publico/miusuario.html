@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/publico/miusuario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="/sieteveintitres/images/logo723.ico" type="image/png">
+    <title>Mi Perfil | Siete Veintitrés Indoor Cycling</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <div><a href="/sieteveintitres/html/index.html"><img src="/sieteveintitres/images/icono723.png"
+                        alt="Logo 723"></a></div>
+            <div class="logo"><a href="/sieteveintitres/html/index.html">SIE7E 23</a></div>
+            <div class="social-bar">
+                <a href="https://www.facebook.com/profile.php?id=100095045494705" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sieteveintitresindoor" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5217471491562" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="nav">
+            <a href="/sieteveintitres/html/publico/nosotros.html">Nosotros</a>
+            <a href="/sieteveintitres/html/publico/membresias.html">Membresías</a>
+            <a href="/sieteveintitres/html/publico/horario.html">Horarios</a>
+            <a href="/sieteveintitres/html/publico/coaches.html">Coaches</a>
+            <a href="/sieteveintitres/html/publico/contacto.html" class="contacto-btn"><i
+                    class="fa-solid fa-envelope"></i>
+                Contáctanos</a>
+            <div class="profile-menu-container">
+                <button id="profile-menu-toggle" class="perfil-btn"><i class="fa-solid fa-user"></i></button>
+                <div id="profile-dropdown" class="profile-dropdown">
+                    <a href="/sieteveintitres/html/publico/iniciosesion.html">Iniciar Sesión</a>
+                    <a href="/sieteveintitres/html/publico/miusuario.html">Mi Perfil</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="notification" class="notification"></div>
+
+        <h2>MI PERFIL</h2>
+        <p class="section-subtitle">Administra tu información, membresía y revisa tu historial.</p>
+
+        <div class="profile-layout">
+            <div class="profile-nav" role="tablist">
+                <button class="tab-link active" data-target="perfil-panel" role="tab" aria-selected="true"><i
+                        class="fa-solid fa-user"></i> Perfil</button>
+                <button class="tab-link" data-target="membresia-panel" role="tab" aria-selected="false"><i
+                        class="fa-solid fa-id-card"></i> Membresía</button>
+                <button class="tab-link" data-target="historial-panel" role="tab" aria-selected="false"><i
+                        class="fa-solid fa-calendar-days"></i> Historial</button>
+            </div>
+
+            <div class="profile-content">
+                <div id="perfil-panel" class="tab-panel active" role="tabpanel">
+                    <form id="profile-form" class="profile-form" novalidate>
+                        <div class="profile-picture-section">
+                            <img src="/sieteveintitres/images/rosa723.jpg" alt="Foto de Perfil" id="profile-img">
+                            <div class="edit-view">
+                                <label for="foto-input" class="picture-edit-button"><i class="fa-solid fa-camera"></i>
+                                    Cambiar Foto</label>
+                                <input type="file" id="foto-input" accept=".jpg, .jpeg, .png" style="display: none;">
+                                <small class="error-message" id="foto-error"></small>
+                            </div>
+                        </div>
+                        <div class="profile-details">
+                            <div class="form-group">
+                                <label for="nombre-input">Nombre Completo</label>
+                                <span class="display-view" id="nombre-view">Ana Sofía Rivas</span>
+                                <div class="edit-view">
+                                    <input type="text" id="nombre-input" value="Ana Sofía Rivas" required>
+                                    <small class="error-message" id="nombre-error"></small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo-input">Correo Electrónico</label>
+                                <span class="display-view" id="correo-view">ana.rivas@email.com</span>
+                                <div class="edit-view">
+                                    <input type="email" id="correo-input" value="ana.rivas@email.com" required>
+                                    <small class="error-message" id="correo-error"></small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono-input">Teléfono</label>
+                                <span class="display-view" id="telefono-view">7471234567</span>
+                                <div class="edit-view">
+                                    <input type="tel" id="telefono-input" value="7471234567" required>
+                                    <small class="error-message" id="telefono-error"></small>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn edit-btn display-view">Editar Perfil</button>
+                                <div class="edit-view">
+                                    <button type="submit" class="btn btn-primary save-btn">Guardar Cambios</button>
+                                    <button type="button" class="btn btn-secondary cancel-btn">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="membresia-panel" class="tab-panel" role="tabpanel">
+                    <form id="membership-form" class="profile-form" novalidate>
+                        <div class="profile-details full-width">
+                            <div class="info-box">
+                                <h4>Detalles de tu Plan Actual</h4>
+                                <div class="info-item">
+                                    <span>Fecha de Inicio:</span>
+                                    <strong id="fecha-inicio-view">22/09/2025</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>Fecha de Vencimiento:</span>
+                                    <strong id="fecha-vence-view">22/10/2025</strong>
+                                </div>
+                                <div class="info-item">
+                                    <span>Código de Acceso:</span>
+                                    <div>
+                                        <strong class="access-code" id="codigo-view">A4T9</strong>
+                                        <button type="button" class="copy-btn" title="Copiar código"><i
+                                                class="fa-solid fa-copy"></i></button>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <span>Tipo de Membresía:</span>
+                                    <strong id="membresia-view">Cargando...</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="historial-panel" class="tab-panel" role="tabpanel">
+                    <div class="profile-details full-width">
+                        <h4 class="history-tittle">Historial de Reservaciones</h4>
+                        <p class="section-subtitle">Aquí puedes ver todas tus clases pasadas y futuras.</p>
+                        <div class="table-container">
+                            <table class="reservations-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha y Hora</th>
+                                        <th>Coach</th>
+                                        <th>Bici</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="/sieteveintitres/js/menuhamburguesa.js"></script>
+    <script src="/sieteveintitres/js/menuperfil.js"></script>
+    <script src="/sieteveintitres/js/miusuario.js"></script>
+    <script src="/sieteveintitres/js/auth/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

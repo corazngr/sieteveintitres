@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/usuarios.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <title>Usuarios | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.php" class="nav-item active">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Gestión de Usuarios</h1>
+                    <p class="subtitle">Busca, filtra y administra a todos los miembros del studio.</p>
+                </div>
+            </header>
+
+            <div class="filters-container">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar por nombre o correo...">
+                </div>
+                <select name="role-filter" id="roleFilter">
+                    <option value="all">Todos los Roles</option>
+                    <option value="rider">Riders</option>
+                    <option value="coach">Coaches</option>
+                    <option value="admin">Administradores</option>
+                </select>
+                <select name="status-filter" id="statusFilter">
+                    <option value="all">Cualquier Estado</option>
+                    <option value="active">Activos</option>
+                    <option value="inactive">Inactivos</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Contacto</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <tr>
+                            <td colspan="5" class="text-center">Cargando usuarios...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+    <div class="modal-overlay" id="assignMembershipModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Asignar Membresía a <span id="assignRiderName"></span></h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form class="modal-form" id="assignMembershipForm">
+
+                <input type="hidden" id="assignRiderId" name="id_rider">
+
+                <div class="form-group">
+                    <label for="membershipTypeSelect">Tipo de Membresía</label>
+
+                    <select id="membershipTypeSelect" name="id_tipo_membresia" required>
+                        <option value="">Cargando tipos...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="membershipStartDate">Fecha de Inicio</label>
+
+                    <input type="date" id="membershipStartDate" name="fecha_inicio" required>
+                </div>
+            </form>
+            <div class="modal-actions">
+                <button class="btn-secondary" data-close-modal>Cancelar</button>
+                <button class="btn-danger" id="saveAssignedMembershipBtn">Asignar Membresía</button>
+            </div>
+        </div>
+    </div>
+    <script src="/sieteveintitres/js/admins/usuariosadmin.js"></script>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

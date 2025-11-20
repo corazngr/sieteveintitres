@@ -1,0 +1,907 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar de navegación */
+.sidebar {
+  background-color: #1a1a1a;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  height: 40px;
+  filter: drop-shadow(0 0 5px #55ffe2);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav-item {
+  color: #ccc;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #2b0c4a;
+  color: #fff;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  color: #ff0080;
+}
+
+.nav-item.active i {
+  color: #55ffe2;
+}
+
+.logout-section {
+  padding-top: 2rem;
+}
+
+.logout-btn {
+  width: 100%;
+  background-color: #5c0f1b;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #7b1322;
+}
+
+/* Contenido principal del dashboard */
+.main-content {
+  padding: 2rem 3rem;
+  position: relative;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('/sieteveintitres/images/inicio723.jpg') no-repeat center center/cover;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #55ffe2;
+  margin-bottom: 2rem;
+}
+
+/* Paneles de acción */
+.action-panels-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.action-panel {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.action-panel:hover {
+  transform: translateY(-5px);
+  background-color: #282828;
+}
+
+.action-panel h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #55ffe2;
+}
+
+.action-panel p {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.btn-action {
+  background-color: #ff0080;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.btn-action:hover {
+  background-color: #e60073;
+}
+
+/* Lista de Clases */
+.class-list-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #55ffe2;
+}
+
+.class-card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.class-info-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.class-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.class-details i {
+  color: #55ffe2;
+  margin-right: 0.5rem;
+}
+
+.class-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.class-participants {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.rider-list-section h4 {
+  font-size: 1.1rem;
+  color: #ff0080;
+  margin-bottom: 0.8rem;
+}
+
+.rider-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.rider-list li {
+  background-color: #282828;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rider-name {
+  flex-grow: 1;
+}
+
+.attendance-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.attendance-btn {
+  background: none;
+  border: 1px solid #333;
+  color: #ccc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.attendance-btn i {
+  font-size: 0.8rem;
+}
+
+.attendance-btn.present:hover {
+  background-color: #55ffe2;
+  color: #000;
+}
+
+.attendance-btn.absent:hover {
+  background-color: #ff0080;
+  color: #fff;
+}
+
+.rider-list li.marked-present .rider-name {
+  color: #55ffe2;
+  font-weight: bold;
+}
+
+.rider-list li.marked-present .attendance-btn.present {
+  background-color: #55ffe2;
+  color: #000;
+}
+
+.rider-list li.marked-present .attendance-btn.absent {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.rider-list li.marked-absent .rider-name {
+  text-decoration: line-through;
+  color: #ff0080;
+}
+
+.rider-list li.marked-absent .attendance-btn.absent {
+  background-color: #ff0080;
+  color: #fff;
+}
+
+.rider-list li.marked-absent .attendance-btn.present {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.view-all-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #55ffe2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ====================== */
+/* ====== HORARIOS ====== */
+/* ====================== */
+.schedule-container {
+  margin-top: 2rem;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.day-column {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.day-column h3 {
+  color: #ff0080;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.class-block {
+  background-color: #282828;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.class-block .time {
+  color: #55ffe2;
+  font-weight: bold;
+}
+
+.class-block .class-name {
+  color: #fff;
+}
+
+.class-block .participants {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ====================== */
+/* ====== PERFIL ======== */
+/* ====================== */
+.profile-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #55ffe2;
+  box-shadow: 0 0 15px rgba(85, 255, 226, 0.6);
+  border-radius: 50%;
+}
+
+.profile-info h2 {
+  font-size: 1.8rem;
+  color: #55ffe2;
+  margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+  color: #ccc;
+  margin: 0.3rem 0;
+}
+
+.profile-info i {
+  color: #ff0080;
+  margin-right: 0.5rem;
+}
+
+/* Estadísticas */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background-color: #282828;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #55ffe2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  color: #ccc;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Botones de acción */
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.profile-actions .btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-attendance {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background-color: #00a6ff;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-size: 0.6rem;
+}
+
+.btn-attendance:hover {
+  background-color: #68c1de;
+}
+
+/* =================================== */
+/* ====== PASE DE LISTA ====== */
+/* =================================== */
+
+.attendance-container .rider-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: 20px 0 0;
+  border-top: 1px solid #444;
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+.rider-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  border-radius: 0;
+  padding: 10px 5px;
+  margin-bottom: 0;
+  transition: background-color 0.2s;
+}
+
+.rider-list li:hover {
+  background-color: rgba(30, 30, 30, 1);
+}
+
+.rider-bike-number {
+  font-weight: 700;
+  color: #E91E63;
+  margin-right: 10px;
+  min-width: 60px;
+  font-size: 0.9rem;
+}
+
+.rider-name {
+  flex-grow: 1;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+.attendance-btn {
+  background: none;
+  border: 1px solid #555;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- COLORES DE BOTONES --- */
+
+.attendance-btn.present {
+  border-color: #28a745;
+}
+
+.attendance-btn.present i {
+  color: #28a745;
+}
+
+.attendance-btn.absent {
+  border-color: #dc3545;
+}
+
+.attendance-btn.absent i {
+  color: #dc3545;
+}
+
+.attendance-btn.present.selected {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.attendance-btn.present.selected i {
+  color: #ffffff;
+}
+
+.attendance-btn.absent.selected {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.attendance-btn.absent.selected i {
+  color: #ffffff;
+}
+
+.attendance-btn:not(.selected):hover {
+  background-color: #444;
+}
+
+.attendance-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.attendance-actions .btn-action {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-pic-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.upload-icon i {
+  font-size: 1.2em;
+}
+
+.editable-input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 90%;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.editable-input:focus {
+  outline: none;
+  border-color: #ff4081;
+}
+
+#coach-name .editable-input {
+  font-size: 1.5em;
+  font-weight: 700;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+#coach-status {
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.status-activo {
+  background-color: #28a745;
+}
+
+.status-inactivo {
+  background-color: #dc3545;
+}
+
+.menu-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* =============================================== */
+/* ============= AJUSTES RESPONSIVOS ============ */
+/* =============================================== */
+
+/* === TABLET (MEDIA) === */
+@media (max-width: 992px) {
+  .dashboard-container {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .main-content {
+    padding: 2rem;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-item {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .btn-action {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+  }
+}
+
+/* === MÓVIL (TAMAÑO MEDIO) === */
+@media (max-width: 768px) {
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    justify-content: flex-end;
+    pointer-events: none;
+    min-height: auto;
+    padding: 0.5rem 1rem;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .menu-toggle-btn {
+    display: block;
+    pointer-events: auto;
+    z-index: 1002;
+    background-color: rgba(26, 26, 26, 0.5);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar>.logout-section {
+    display: none;
+  }
+
+  /* === ESTILO DEL MENÚ DESPLEGABLE === */
+  .sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    padding: 6rem 1.5rem 2rem 1.5rem;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    justify-content: flex-start;
+    pointer-events: auto;
+  }
+
+  .sidebar-nav.is-active {
+    transform: translateX(0);
+  }
+
+  .sidebar-nav .logout-section {
+    display: block;
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  .sidebar-header {
+    display: none;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+
+  .main-header h1 {
+    font-size: 2rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .profile-pic-container {
+    margin-right: 0;
+  }
+
+  .class-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .rider-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .attendance-options {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .attendance-container .rider-list li {
+    flex-direction: row !important; 
+    align-items: center !important;  
+    gap: 0 !important;              
+    padding: 10px 5px !important;   
+  }
+
+  .attendance-container .rider-name {
+    flex-grow: 1;
+    text-align: left; 
+  }
+
+  .attendance-container .attendance-options {
+    width: auto !important;
+    justify-content: flex-start !important; 
+    gap: 8px; 
+  }
+
+  .attendance-container .rider-bike-number {
+    font-size: 0.8rem;
+    min-width: 50px; 
+    margin-right: 8px;
+  }
+  .attendance-container .rider-name {
+    font-size: 0.9rem;
+  }
+}
+
+/* === MÓVIL (TAMAÑO PEQUEÑO) === */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .sidebar {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: transparent;
+    justify-content: flex-end;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .logo-icon {
+    height: 35px;
+  }
+
+  .logout-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .action-panel {
+    padding: 1.5rem;
+  }
+
+  .action-panel h3 {
+    font-size: 1.3rem;
+  }
+
+  .class-info-card {
+    padding: 1.5rem;
+  }
+
+  .profile-header {
+    padding: 1.5rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+}

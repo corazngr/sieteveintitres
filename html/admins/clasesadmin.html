@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/clases.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+    <title>Clases | Administrador Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+
+
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item active">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+            <header class="main-header">
+                <div class="header-content">
+                    <h1>Gestión de Clases y Horarios</h1>
+                    <p class="subtitle">Organiza el calendario semanal y administra la asistencia.</p>
+                </div>
+                <button class="btn-primary" id="openModalBtn">
+                    <i class="fa-solid fa-plus"></i> Programar Nueva Clase
+                </button>
+            </header>
+
+            <div class="calendar-controls">
+                <a href="#" id="prevWeekBtn" class="nav-btn"><i class="fa-solid fa-chevron-left"></i> Anterior</a>
+                <h2 class="current-week" id="currentWeekDisplay">Cargando...</h2>
+                <a href="#" id="nextWeekBtn" class="nav-btn">Siguiente <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="day-header">Lunes</div>
+                <div class="day-header">Martes</div>
+                <div class="day-header">Miércoles</div>
+                <div class="day-header">Jueves</div>
+                <div class="day-header">Viernes</div>
+                <div class="day-header">Sábado</div>
+                <div class="day-header">Domingo</div>
+
+                <div class="calendar-day" id="day-1"></div>
+                <div class="calendar-day" id="day-2"></div>
+                <div class="calendar-day" id="day-3"></div>
+                <div class="calendar-day" id="day-4"></div>
+                <div class="calendar-day" id="day-5"></div>
+                <div class="calendar-day" id="day-6"></div>
+                <div class="calendar-day" id="day-7"></div>
+            </div>
+        </main>
+    </div>
+    <div class="modal-overlay" id="addClassModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Programar Nueva Clase</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+
+            <form class="modal-form">
+                <input type="hidden" id="classId" name="id_horario">
+                <div class="form-group">
+                    <label for="className">Nombre de la Clase</label>
+                    <input type="text" id="className" placeholder="Ej: Clase 7:15, Clase 8:15,etc." required>
+                </div>
+                <div class="form-group">
+                    <label for="classDate">Fecha</label>
+                    <input type="date" id="classDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="classCoach">Coach Asignado</label>
+                    <select id="classCoach" name="coach" required>
+                        <option value="" disabled selected>Cargando coaches...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="classTime">Hora de Inicio</label>
+                    <input type="time" id="classTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="classCapacity">Cupo Máximo</label>
+                    <input type="number" id="classCapacity" value="15" required>
+                </div>
+                <div class="form-group">
+                    <label for="classDuration">Duración</label>
+                    <select id="classDuration" required>
+                        <option value="45">45 minutos</option>
+                        <option value="50">50 minutos</option>
+                        <option value="60" selected>60 minutos</option>
+                    </select>
+                </div>
+            </form>
+
+            <div class="modal-actions">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-primary">Guardar Clase</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="viewRidersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="viewRidersTitle">Lista de Riders</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="riders-list" id="ridersListContainer">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-secondary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/sieteveintitres/js/admins/clases.js"></script>
+<script src="/sieteveintitres/js/cerrarsesion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</html>

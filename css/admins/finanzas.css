@@ -1,0 +1,505 @@
+@import url('estilo.css');
+
+.section-header,
+.financial-summary,
+.summary-card,
+.table-container,
+.filters-container {
+    position: relative;
+    z-index: 2;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    width: 260px;
+    background-color: #1a1a1a;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+/* === Estilos específicos para la página de finanzas === */
+
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.filters-container input[type="date"],
+.filters-container select {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.filters-container input[type="date"] {
+    color-scheme: dark;
+}
+
+.financial-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.summary-card {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-bottom: 4px solid #555;
+}
+
+.summary-card p {
+    margin: 0;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.summary-card span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0.5rem;
+}
+
+.summary-card.income {
+    border-color: #27AE60;
+}
+
+.summary-card.expense {
+    border-color: #C0392B;
+}
+
+.summary-card.net-balance {
+    border-color: #2980B9;
+}
+
+/* Historial de Transacciones */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Tabla de Transacciones */
+.table-container {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #282828;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #282828;
+}
+
+.transactions-table th {
+    background-color: #252525;
+}
+
+.transactions-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.amount-income {
+    color: #27AE60;
+    font-weight: 700;
+}
+
+.amount-expense {
+    color: #C0392B;
+    font-weight: 700;
+}
+
+.type-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.type-badge.income {
+    background-color: #27AE60;
+}
+
+.type-badge.expense {
+    background-color: #C0392B;
+}
+
+.action-btn-table {
+    background: none;
+    border: 1px solid #333;
+    color: #a0a0a0;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn-table:hover {
+    background-color: #555;
+    color: #fff;
+    border-color: #555;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #ff0080;
+    color: #fff;
+    border: 1px solid #ff0080;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 1rem 0;
+}
+
+.btn-primary:hover {
+    background: none;
+    color: #ccc;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #39afab;
+    color: #fff;
+    border: 1px solid #66fabc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 1rem 0;
+}
+
+.btn-danger:hover {
+    background: none;
+    color: #ccc;
+    transform: translateY(-2px);
+
+}
+
+/* === ESTILOS PARA LAS VENTANAS MODALES === */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.visible {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content.modal-sm {
+    max-width: 450px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+/* Detalles del recibo */
+.receipt-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #ccc;
+}
+
+.receipt-details li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #282828;
+}
+
+.receipt-details li:last-child {
+    border-bottom: none;
+}
+
+.receipt-details li strong {
+    color: #fff;
+    margin-right: 0.5rem;
+}
+
+.modal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Móviles y Tablets)
+   ========================================================================== */
+
+#mobile-menu-btn {
+    display: none;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* --- LAYOUT GENERAL --- */
+    .dashboard-container {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        height: 100%;
+        z-index: 1001;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* Botón menú visible */
+    #mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* --- FILTROS --- */
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filters-container select {
+        width: 100%;
+    }
+
+    /* --- RESUMEN FINANCIERO --- */
+    .financial-summary {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    /* --- TABLA DE TRANSACCIONES --- */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .transactions-table th,
+    .transactions-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    /* --- MODALES --- */
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    .modal-form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+        gap: 0.8rem;
+    }
+
+    .btn-secondary,
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .financial-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .action-buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-danger {
+        width: 100%;
+        justify-content: center;
+    }
+}

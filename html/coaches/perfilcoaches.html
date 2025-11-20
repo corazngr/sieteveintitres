@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/sieteveintitres/css/coaches/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="/sieteveintitres/images/icono_coach.png">
+
+  <title>Perfil Coach | Studio 723</title>
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+
+      <div class="sidebar-header">
+        <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+        <div class="logo-text">SIE7E 23</div>
+      </div>
+
+      <button class="menu-toggle-btn" id="menu-toggle">
+        ☰
+      </button>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+
+        <a href="/sieteveintitres/html/coaches/iniciocoach.html" class="nav-item">
+          <i class="fa-solid fa-house-chimney"></i> Inicio
+        </a>
+        <a href="/sieteveintitres/html/coaches/clasescoaches.html" class="nav-item">
+          <i class="fa-solid fa-calendar-alt"></i> Mis Clases
+        </a>
+        <a href="/sieteveintitres/html/coaches/perfilcoaches.html" class="nav-item active">
+          <i class="fa-solid fa-user"></i> Mi Perfil
+        </a>
+        <div class="logout-section">
+          <button class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+          </button>
+        </div>
+      </nav>
+
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+      <header class="main-header">
+        <h1>Perfil del Coach 👤</h1>
+      </header>
+
+      <section class="profile-container">
+        <!-- Info del coach -->
+        <div class="profile-header">
+          <div class="profile-pic-container">
+            <img src="/sieteveintitres/images/rosa723.jpg" alt="Foto del Coach" class="profile-pic" id="profile-image">
+            <label for="file-upload" class="upload-icon" id="upload-icon" style="display: none;">
+              <i class="fa-solid fa-camera"></i>
+            </label>
+            <input type="file" id="file-upload" accept="image/*" style="display: none;">
+          </div>
+          <div class="profile-info">
+            <h2 id="coach-name">Nombre Coach..</h2>
+            <p><i class="fa-solid fa-envelope"></i> <span id="coach-email">nombre.coach@siete23.com</span></p>
+            <p><i class="fa-solid fa-phone"></i> <span id="coach-phone">+52 1234567890</span></p>
+            <p><i class="fa-solid fa-star"></i> Estatus: <span id="coach-status">Cargando...</span></p>
+          </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="profile-stats">
+          <div class="stat-card">
+            <h3 id="stat-clases">0</h3>
+            <p>Clases impartidas</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="stat-riders">0</h3>
+            <p>Riders entrenados</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="stat-custom-valor">--</h3>
+            <p id="stat-custom-titulo">Miembro desde</p>
+          </div>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="profile-actions">
+          <a href="#" id="edit-btn" class="btn-action"><i class="fa-solid fa-pen"></i> Editar Perfil</a>
+          <a href="#" id="save-btn" class="btn-action"><i class="fa-solid fa-save"></i> Guardar Cambios</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/sieteveintitres/js/coach/perfilcoach.js"></script>
+  <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+  <script src="/sieteveintitres/js/coach/menuhamburguesa.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

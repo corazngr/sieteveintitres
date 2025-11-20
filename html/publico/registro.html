@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/publico/perfil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="/sieteveintitres/images/logo723.ico" type="image/png">
+
+    <title>Regístrate | Siete Veintitrés Indoor Cycling</title>
+</head>
+<div id="messageModal" class="modal-overlay">
+    <div class="modal-content">
+        <p id="modalMessage" class="modal-message"></p>
+        <button id="modalCloseBtn" class="modal-close-btn">Entendido</button>
+    </div>
+</div>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <div><a href="/sieteveintitres/html/index.html"><img src="/sieteveintitres/images/icono723.png"
+                        alt="Logo 723"></a></div>
+            <div class="logo"><a href="/sieteveintitres/html/index.html">SIE7E 23</a></div>
+            <div class="social-bar">
+                <a href="https://www.facebook.com/profile.php?id=100095045494705" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sieteveintitresindoor" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5217471491562" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="nav">
+            <a href="/sieteveintitres/html/publico/nosotros.html">Nosotros</a>
+            <a href="/sieteveintitres/html/publico/membresias.html">Membresías</a>
+            <a href="/sieteveintitres/html/publico/horario.html">Horarios</a>
+            <a href="/sieteveintitres/html/publico/coaches.html">Coaches</a>
+            <a href="/sieteveintitres/html/publico/contacto.html" class="contacto-btn"><i
+                    class="fa-solid fa-envelope"></i>
+                Contáctanos</a>
+            <div class="profile-menu-container">
+                <button id="profile-menu-toggle" class="perfil-btn">
+                    <i class="fa-solid fa-user"></i>
+                </button>
+                <div id="profile-dropdown" class="profile-dropdown">
+                    <a href="/sieteveintitres/html/publico/iniciosesion.html">Iniciar Sesión</a>
+                    <a href="/sieteveintitres/html/publico/miusuario.html">Mi Perfil</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="createcuenta-container">
+
+        <div class="login-form-wrapper">
+            <div class="form-contenteiner">
+                <img src="/sieteveintitres/images/logo_723.png" alt="Logo SIE7E 23" class="form-logo">
+
+                <h1>Crear Cuenta</h1>
+                <p class="subtitle">
+                    ¿Ya tienes una cuenta? <a href="/sieteveintitres/html/publico/iniciosesion.html">Inicia sesión</a>.
+                </p>
+
+                <form id="registerForm" method="POST" action="/sieteveintitres/php/publico/registro.php"
+                    enctype="multipart/form-data">
+
+                    <div class="user-type-selector">
+                        <input type="radio" id="userTypeRider" name="userType" value="rider" checked>
+                        <label for="userTypeRider" class="btn-user-type">Rider</label>
+
+                        <input type="radio" id="userTypeCoach" name="userType" value="coach">
+                        <label for="userTypeCoach" class="btn-user-type">Coach</label>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nameInput">Nombre Completo</label>
+                            <input type="text" id="nameInput" name="nameInput" placeholder="Tu Nombre Completo"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailInput">Correo Electrónico</label>
+                            <input type="email" id="emailInput" name="emailInput" placeholder="tu.correo@gmail.com"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneInput">Teléfono</label>
+                            <input type="tel" id="phoneInput" name="phoneInput" placeholder="7471234567" required>
+                        </div>
+
+                        <div id="dynamicFormFields">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-login">Registrarse</button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="createcuenta-image">
+        </div>
+
+    </main>
+
+    <script src="/sieteveintitres/js/registro.js"></script>
+    <script src="/sieteveintitres/js/menuhamburguesa.js"></script>
+    <script src="/sieteveintitres/js/menuperfil.js"></script>
+    <script src="/sieteveintitres/js/auth/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

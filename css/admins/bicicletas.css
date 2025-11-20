@@ -1,0 +1,515 @@
+@import url('estilo.css');
+
+.bikes-grid,
+.filters-container {
+    position: relative;
+    z-index: 2;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100%;
+    position: relative;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    width: 260px;
+    background-color: #1a1a1a;
+    transition: transform 0.3s ease;
+    z-index: 1001;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+/* === Estilos específicos para la página de bicicletas === */
+
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #a0a0a0;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #252525;
+    color: #fff;
+}
+
+.filter-btn.active {
+    background-color: #0026ff;
+    color: #fff;
+    border-color: #0026ff;
+    font-weight: 700;
+}
+
+.bikes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.bike-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    overflow: hidden;
+    border-left: 5px solid #555;
+    display: flex;
+    flex-direction: column;
+    transition: border-left-color 0.3s ease;
+}
+
+.bike-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #282828;
+}
+
+.bike-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* 🟢 Estado: Disponible */
+.bike-card.status-disponible {
+    border-left-color: #3fa942;
+}
+
+/* 🟡 Estado: En Mantenimiento */
+.bike-card.status-mantenimiento {
+    border-left-color: #e9c46a;
+}
+
+/* 🔴 Estado: Fuera de Servicio */
+.bike-card.status-fuera-de-servicio {
+    border-left-color: #e53935;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.status-badge.status-available {
+    background-color: #27AE60;
+}
+
+.status-badge.status-maintenance {
+    background-color: #D35400;
+}
+
+.status-badge.status-out-of-service {
+    background-color: #C0392B;
+}
+
+.bike-card.status-available {
+    border-left: 5px solid #27AE60;
+}
+
+.bike-card.status-maintenance {
+    border-left: 5px solid #D35400;
+}
+
+.bike-card.status-out-of-service {
+    border-left: 5px solid #C0392B;
+}
+
+.bike-card .card-body {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.bike-icon {
+    font-size: 4rem;
+    color: #55ffe2;
+    margin-bottom: 1rem;
+}
+
+.card-body p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.card-body p strong {
+    color: #ccc;
+}
+
+.bike-card .card-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background-color: #252525;
+    border-top: 1px solid #282828;
+    flex-wrap: wrap;
+}
+
+.action-btn-card {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #164e4b;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 0.5rem;
+}
+
+.action-btn-card:hover {
+    background-color: #d6006c;
+}
+
+.btn-danger {
+    background-color: #39afab;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 1rem 0;
+}
+
+.btn-danger:hover {
+    background: none;
+    color: #ccc;
+    transform: translateY(-2px);
+    border: 1px solid #66fabc;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #ff0080;
+    color: #fff;
+    border: 1px solid #ff0080;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 1rem 0;
+}
+
+.btn-primary:hover {
+    background: none;
+    color: #ccc;
+    transform: translateY(-2px);
+}
+
+/* === ESTILOS PARA LAS VENTANAS MODALES === */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-overlay.visible {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+#maintenanceForm,
+#editBikeNotes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e9c46a;
+    box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.2);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ccc;
+}
+
+.history-table th,
+.history-table td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.history-table th {
+    font-weight: 700;
+    color: #fff;
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   RESPONSIVIDAD (Móviles y Tablets)
+   ========================================================================== */
+
+@media screen and (max-width: 992px) {
+
+    .bikes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        height: 100%;
+        z-index: 1001;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    /* --- FILTROS --- */
+    .filters-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        flex: 1 1 auto;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* --- CABECERA --- */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .main-header .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* --- MODALES --- */
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    /* --- TABLAS (Historial) --- */
+    .modal-body {
+        overflow-x: auto;
+    }
+
+    .history-table th,
+    .history-table td {
+        white-space: nowrap;
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mobile-menu-btn {
+        display: block !important;
+    }
+}

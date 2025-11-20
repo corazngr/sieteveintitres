@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sieteveintitres/css/admins/estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/1896/1896513.png">
+
+    <title>Inicio Administrador | Studio 723</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/sieteveintitres/images/icono723.png" alt="Logo 723" class="logo-icon">
+                <div class="logo-text">SIE7E 23</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/sieteveintitres/html/admins/inicioadmin.html" class="nav-item active">
+                    <i class="fa-solid fa-house-chimney"></i> Inicio
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="nav-item">
+                    <i class="fa-solid fa-users"></i> Usuarios
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="nav-item">
+                    <i class="fa-solid fa-calendar-alt"></i> Clases
+                </a>
+                <a href="/sieteveintitres/html/admins/membresiasadmin.html" class="nav-item">
+                    <i class="fa-solid fa-id-card"></i> Membresías
+                </a>
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="nav-item">
+                    <i class="fa-solid fa-cash-register"></i> Finanzas
+                </a>
+                <a href="/sieteveintitres/html/admins/cafeteria.html" class="nav-item">
+                    <i class="fa-solid fa-coffee"></i> Cafetería
+                </a>
+                <a href="/sieteveintitres/html/admins/bicicletas.html" class="nav-item">
+                    <i class="fa-solid fa-bicycle"></i> Bicicletas
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="nav-item">
+                    <i class="fa-solid fa-eye"></i> Vista Público
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <button class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <button id="mobile-menu-btn"><i class="fa-solid fa-bars"></i> Menú</button>
+
+            <header class="main-header">
+                <h1>¡Bienvenido, <span id="adminName">Cargando...</span>! 😊</h1>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon reservations">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Reservaciones para Hoy</p>
+                        <span>
+                            <strong id="reservationsCount">0</strong> / <span id="totalCapacity">0</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Ingresos del Día</p>
+                        <span>$ <strong id="dailyIncome">0.00</strong></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon new-users">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Nuevos Riders (Mes)</p>
+                        <span><strong id="newRidersCount">0</strong></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon active-memberships">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Membresías Activas</p>
+                        <span><strong id="activeMembershipsCount">0</strong></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon maintenance">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Bicicletas en Mantenimiento</p>
+                        <span><strong id="maintenanceBikesCount">0</strong></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="action-panels-container">
+                <a href="/sieteveintitres/html/admins/finanzas.html" class="action-panel">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h3>Registrar Ingreso / Egreso</h3>
+                    <p>Añade membresías, ventas y gastos del studio</p>
+                </a>
+                <a href="/sieteveintitres/html/admins/usuariosadmin.html" class="action-panel">
+                    <i class="fa-solid fa-user"></i>
+                    <h3>Ver Usuarios</h3>
+                    <p>Consulta los perfiles de riders, coaches y administradores.</p>
+                </a>
+                <a href="/sieteveintitres/html/admins/clasesadmin.html" class="action-panel">
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    <h3>Programar Horarios</h3>
+                    <p>Crea y asigna clases a los coaches en el calendario.</p>
+                </a>
+                <a href="/sieteveintitres/html/admins/vistapublico.html" class="action-panel">
+                    <i class="fa-solid fa-gear"></i>
+                    <h3>Ajustes del Sitio Público</h3>
+                    <p>Define qué información ven tus riders.</p>
+                </a>
+            </section>
+
+        </main>
+    </div>
+    <script src="/sieteveintitres/js/cerrarsesion.js"></script>
+    <script src="/sieteveintitres/js/admins/inicioadmin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
